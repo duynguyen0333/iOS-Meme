@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01070E882AD3E49300EAAA02 /* MemeStruc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01070E872AD3E49300EAAA02 /* MemeStruc.swift */; };
 		0133ACD22AC6B13100B1DC8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0133ACD12AC6B13100B1DC8F /* AppDelegate.swift */; };
 		0133ACD42AC6B13100B1DC8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0133ACD32AC6B13100B1DC8F /* SceneDelegate.swift */; };
 		0133ACD62AC6B13100B1DC8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0133ACD52AC6B13100B1DC8F /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01070E872AD3E49300EAAA02 /* MemeStruc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeStruc.swift; sourceTree = "<group>"; };
 		0133ACCE2AC6B13100B1DC8F /* View presentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "View presentation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0133ACD12AC6B13100B1DC8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0133ACD32AC6B13100B1DC8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,7 @@
 		0133ACDA2AC6B13300B1DC8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0133ACDD2AC6B13300B1DC8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0133ACDF2AC6B13300B1DC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01D1C15A2AD3B5B50002F828 /* Script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Script.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +43,7 @@
 		0133ACC52AC6B13100B1DC8F = {
 			isa = PBXGroup;
 			children = (
+				01D1C15A2AD3B5B50002F828 /* Script.sh */,
 				0133ACD02AC6B13100B1DC8F /* View presentation */,
 				0133ACCF2AC6B13100B1DC8F /* Products */,
 			);
@@ -63,6 +67,7 @@
 				0133ACDA2AC6B13300B1DC8F /* Assets.xcassets */,
 				0133ACDC2AC6B13300B1DC8F /* LaunchScreen.storyboard */,
 				0133ACDF2AC6B13300B1DC8F /* Info.plist */,
+				01070E872AD3E49300EAAA02 /* MemeStruc.swift */,
 			);
 			path = "View presentation";
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				0133ACD62AC6B13100B1DC8F /* ViewController.swift in Sources */,
 				0133ACD22AC6B13100B1DC8F /* AppDelegate.swift in Sources */,
 				0133ACD42AC6B13100B1DC8F /* SceneDelegate.swift in Sources */,
+				01070E882AD3E49300EAAA02 /* MemeStruc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

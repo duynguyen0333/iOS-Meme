@@ -24,13 +24,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        #if targetEnvironment(simulator)
+        cameraButton.isEnabled = false
+        #else
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        #endif
+        
         setTextFields(textInput: topTextField, defaultText: "TOP")
         setTextFields(textInput: bottomTextField, defaultText: "BOTTOM")
         subscribeToKeyboardNotifications()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         unSubscribeToKeyboardNotifications()
     }
     
@@ -48,7 +54,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
     }
     
     @IBAction func showCamera(_ sender: Any) {
-        pickImage(source: UIImagePickerController.SourceType.camera)
+        pickImage(source: .camera)
     }
     
     @IBAction func pickAnImage(_ sender: Any) {
@@ -94,7 +100,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
     // MARK:  Handle show keyboard for bottom textfiel
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name:   UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func unSubscribeToKeyboardNotifications() {
@@ -137,6 +142,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
         textInput.defaultTextAttributes = textAttributes
         textInput.delegate = self
         textInput.textAlignment = .center
+        textInput.autocapitalizationType = .allCharacters
     }
     
     // MARK: Struct MEME
@@ -165,11 +171,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
     // MARK: Hidden toolbar + navbar
     func hiddenToolBar(isHidden: Bool){
         if isHidden {
-            navBar.isHidden = false
-            toolBar.isHidden = false
+            navBar.isHidden = isHidden
+            toolBar.isHidden = isHidden
         } else {
-            navBar.isHidden = true
-            toolBar.isHidden = true
+            navBar.isHidden = isHidden
+            toolBar.isHidden = isHidden
         }
     }
     
