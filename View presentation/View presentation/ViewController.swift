@@ -171,11 +171,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
     // MARK: Hidden toolbar + navbar
     func hiddenToolBar(isHidden: Bool){
         if isHidden {
-            navBar.isHidden = isHidden
-            toolBar.isHidden = isHidden
+            navBar.isHidden = false 
+            toolBar.isHidden = false
         } else {
-            navBar.isHidden = isHidden
-            toolBar.isHidden = isHidden
+            navBar.isHidden = true 
+            toolBar.isHidden = true
         }
     }
     
