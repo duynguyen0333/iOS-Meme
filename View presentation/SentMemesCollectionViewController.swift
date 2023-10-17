@@ -19,27 +19,14 @@ class SentMemesCollectionViewController : UICollectionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       customLayout()
+        setupViewLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView?.reloadData()    // removed self
-    }
-    
-    func customLayout(){
-        let space:CGFloat = 3.0
-        let dimension = (view.frame.size.width - (2 * space)) / 3.0
-        
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        self.collectionView?.reloadData()    // removed self
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        collectionView!.reloadData()
-    }
-    
     // MARK: For Data source
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
@@ -47,8 +34,8 @@ class SentMemesCollectionViewController : UICollectionViewController{
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        let meme = self.memes[(indexPath as NSIndexPath).row]
-        cell.memeImage!.image = meme.memedImage
+        let meme = self.memes[indexPath.row]
+        cell.imageView?.image = meme.memedImage
 
         return cell
     }
@@ -57,7 +44,17 @@ class SentMemesCollectionViewController : UICollectionViewController{
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = self.memes[(indexPath as NSIndexPath).row]
         self.navigationController?.pushViewController(detailController, animated: true)
-
     }
+    
+    // MARK: Custom Function
+    func setupViewLayout(){
+        let space:CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+    }
+    
 }
 

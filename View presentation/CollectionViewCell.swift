@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var memeImage: UIImageView!
+
+    @IBOutlet weak var imageView: UIImageView!
 }
 

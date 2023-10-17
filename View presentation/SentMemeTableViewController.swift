@@ -8,38 +8,36 @@
 import Foundation
 import UIKit
 
-class SentMemeTableViewController : UITableViewController, UIViewControllerTransitioningDelegate {
+class SentMemeTableViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
     
-    @IBOutlet weak var tableViewA: UITableView!
+    @IBOutlet var tableViewMeme: UITableView!
     
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      self.tableView.rowHeight = 110
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//    
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-      NotificationCenter.default.addObserver(self, selector: #selector(refreshTable),
-                                             name: NSNotification.Name(rawValue: "refreshMemeData"), object: nil)
-    }
-
-    // MARK: Helper function to refresh data in table
-    @objc func refreshTable() {
-      self.tableViewA.reloadData()
+        super.viewWillAppear(animated)
+        self.tableViewMeme?.reloadData()
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        self.tableViewMeme?.reloadData()
+//    }
+
     // MARK: For Data source
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")!
         let meme = self.memes[(indexPath as NSIndexPath).row]
         
@@ -50,10 +48,9 @@ class SentMemeTableViewController : UITableViewController, UIViewControllerTrans
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = self.memes[(indexPath as NSIndexPath).row]
         self.navigationController!.pushViewController(detailController, animated: true)
     }
-    
 }
