@@ -16,6 +16,7 @@ class SentMemeTableViewController : UIViewController, UITableViewDataSource, UIT
     }
     
     @IBOutlet var tableViewMeme: UITableView!
+    let swipeGestureRecognizer = UISwipeGestureRecognizer()
     
     override func viewDidLoad() {
         setupLayout()
@@ -55,8 +56,5 @@ class SentMemeTableViewController : UIViewController, UITableViewDataSource, UIT
     func setupLayout(){
         // Setup table view background
         self.tableViewMeme.backgroundColor = .white
-
-
-       
     }
 }
