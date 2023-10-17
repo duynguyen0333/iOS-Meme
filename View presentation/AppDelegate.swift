@@ -12,7 +12,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var memes = [Meme]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        // Setup color title for navigationBar
+        let titleTextAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.black]
+        UINavigationBar.appearance().titleTextAttributes = titleTextAttributes
+        
+        // Setup background color for tabar
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.white
+        
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+        
         return true
     }
 
@@ -29,7 +41,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 

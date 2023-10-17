@@ -17,28 +17,25 @@ class SentMemeTableViewController : UIViewController, UITableViewDataSource, UIT
     
     @IBOutlet var tableViewMeme: UITableView!
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    
-//    }
+    override func viewDidLoad() {
+        setupLayout()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableViewMeme?.reloadData()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        self.tableViewMeme?.reloadData()
-//    }
-
     // MARK: For Data source
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")!
+        
+        cell.contentView.backgroundColor = UIColor.white
+        cell.textLabel?.textColor = .black
         let meme = self.memes[(indexPath as NSIndexPath).row]
         
         if let topText = meme.topText, let bottomText = meme.bottomText {
@@ -52,5 +49,14 @@ class SentMemeTableViewController : UIViewController, UITableViewDataSource, UIT
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = self.memes[(indexPath as NSIndexPath).row]
         self.navigationController!.pushViewController(detailController, animated: true)
+    }
+    
+    // MARK: Custom Function
+    func setupLayout(){
+        // Setup table view background
+        self.tableViewMeme.backgroundColor = .white
+
+
+       
     }
 }

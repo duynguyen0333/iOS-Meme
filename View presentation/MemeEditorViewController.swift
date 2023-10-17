@@ -21,6 +21,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         shareButton.isEnabled = false
+        setupLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -182,5 +183,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         imagePickerView.image = nil 
+    }
+    
+    func setupLayout(){
+        // Setup background color
+        view.backgroundColor = .white
     }
 }

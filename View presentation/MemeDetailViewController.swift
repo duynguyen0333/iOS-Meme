@@ -9,20 +9,23 @@ import Foundation
 import UIKit
 
 class MemeDetailViewController : UIViewController {
-    
     var meme: Meme?
     
     @IBOutlet weak var memeImageView: UIImageView!
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        customNavigationBarIcon()
+        setupLayout()
         if let meme = meme {
             memeImageView.image = meme.memedImage
         }
     }
     
-    func customNavigationBarIcon(){
+    func setupLayout(){
+        // Setup background color
+        view.backgroundColor = .white
+
+        // Setup navigation bar
         let rightButton = UIButton(type: .custom)
         rightButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         let rightBarButtonItem = UIBarButtonItem(customView: rightButton)

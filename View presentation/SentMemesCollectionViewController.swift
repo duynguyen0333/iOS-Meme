@@ -19,7 +19,7 @@ class SentMemesCollectionViewController : UICollectionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViewLayout()
+        setupLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +47,10 @@ class SentMemesCollectionViewController : UICollectionViewController{
     }
     
     // MARK: Custom Function
-    func setupViewLayout(){
+    func setupLayout(){
+        // Setup collection view background
+        collectionView.backgroundColor = .white
+
         let space:CGFloat = 3.0
         let dimension = (view.frame.size.width - (2 * space)) / 3.0
         
